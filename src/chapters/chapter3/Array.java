@@ -17,6 +17,6 @@ public class Array {
         month_days[10] = 30;
         month_days[11] = 31;
         System.out.println("in april " + month_days[1] + "days");
-
+        System.out.println();
     }
 }
