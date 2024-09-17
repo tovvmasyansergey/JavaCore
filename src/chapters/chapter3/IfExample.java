@@ -6,8 +6,10 @@ public class IfExample {
         int b = 20;
         if (a > b) {
             System.out.println(a);
-        }else{
+        } else {
             System.out.println(b);
         }
+        int c = Math.max(a, b);
+        System.out.println(c);
     }
 }
