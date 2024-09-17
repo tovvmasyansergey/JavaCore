@@ -10,6 +10,7 @@ public class IfExample {
             System.out.println(b);
         }
         int c = Math.max(a, b);
+        System.out.println(Math.toDegrees(a));
         System.out.println(c);
     }
 }
