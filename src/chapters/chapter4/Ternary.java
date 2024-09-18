@@ -6,6 +6,7 @@ public class Ternary {
         i = 10;
         k = i < 0 ? -i : i;
         System.out.println("i = " + k);
+        System.out.println();
         i = -10;
         k = i < 0 ? -i : i;
         System.out.println("i = " + k);
