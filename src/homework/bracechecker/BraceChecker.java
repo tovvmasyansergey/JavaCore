@@ -23,7 +23,7 @@ public class BraceChecker {
                 case ')':
                     lastSim = stack.pop();
                     if (lastSim == '-') {
-                        System.out.println("closed )" + "but not opened " + i);
+                        System.out.println("closed )but not opened " + i);
                     } else if (lastSim != '(') {
                         System.out.println("opened " + lastSim + "but closed )" + i);
                     }
@@ -47,11 +47,9 @@ public class BraceChecker {
             }
 
         }
+
+        while (!stack.isEmpty()) {
+            System.out.println("Error opened" + stack.pop() + "but not closed");
+        }
     }
 }
-//        for (int i = 0; i < 34; i++) {
-//            System.out.println(stack.pop());
-//        }
-//    char c = '[';
-//    char c1 = c;
-//    System.out.println((int)c);
