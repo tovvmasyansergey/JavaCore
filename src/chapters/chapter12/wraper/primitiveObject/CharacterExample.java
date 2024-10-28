@@ -1,4 +1,4 @@
-package chapters.chapter12.primitiveObject;
+package chapters.chapter12.wraper.primitiveObject;
 
 public class CharacterExample {
     public static void main(String[] args) {
