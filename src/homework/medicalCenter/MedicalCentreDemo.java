@@ -2,6 +2,7 @@ package homework.medicalCenter;
 
 import homework.medicalCenter.model.Doctor;
 import homework.medicalCenter.model.Patient;
+import homework.medicalCenter.model.Profession;
 import homework.medicalCenter.storage.PersonStorage;
 import homework.medicalCenter.util.DateUtil;
 
@@ -58,7 +59,7 @@ public class MedicalCentreDemo implements Commands {
         Doctor doctor = personStorage.getDoctorById(id);
         if (doctor != null) {
             personStorage.searchPatientByDoctor(doctor);
-        }else {
+        } else {
             System.out.println("doctor with " + id + " does not exist");
         }
     }
@@ -74,7 +75,7 @@ public class MedicalCentreDemo implements Commands {
             String[] patientData = patientDataStr.split(",");
             try {
                 Date registerDateTime = DateUtil.stringToDateTime(patientData[4]);
-                if (personStorage.isDoctorAvailable(registerDateTime,doctor)) {
+                if (personStorage.isDoctorAvailable(registerDateTime, doctor)) {
                     Patient patient = new Patient();
                     patient.setId(patientData[0]);
                     patient.setName(patientData[1]);
@@ -102,16 +103,24 @@ public class MedicalCentreDemo implements Commands {
         String id = scanner.nextLine();
         Doctor doctorById = personStorage.getDoctorById(id);
         if (doctorById != null) {
+            personStorage.printProfession();
             System.out.println("Please input name,surname,email,phone,profession");
             String doctorDataStr = scanner.nextLine();
             String[] doctorData = doctorDataStr.split(",");
-            doctorById.setName(doctorData[0]);
-            doctorById.setSurName(doctorData[1]);
-            doctorById.setPhone(doctorData[2]);
-            doctorById.setEmail(doctorData[3]);
-            doctorById.setProfession(doctorData[4]);
-            personStorage.add(doctorById);
-            System.out.println("Doctor was updated");
+            try {
+                doctorById.setProfession(Profession.valueOf(doctorData[4]));
+                doctorById.setName(doctorData[0]);
+                doctorById.setSurName(doctorData[1]);
+                doctorById.setPhone(doctorData[2]);
+                doctorById.setEmail(doctorData[3]);
+             //   personStorage.add(doctorById);
+                System.out.println("Doctor was updated");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Please input right profession");
+            }
+
+
+
         } else {
             System.out.println("doctor with " + id + " does not exists!");
         }
@@ -130,12 +139,17 @@ public class MedicalCentreDemo implements Commands {
     }
 
     private static void searchDoctorByProfession() {
+        personStorage.printProfession();
         System.out.println("Please input profession");
         String profession = scanner.nextLine();
-        personStorage.searchDoctorByProfession(profession);
+        try {
+            personStorage.searchDoctorByProfession(Profession.valueOf(profession));
+        } catch (IllegalArgumentException e){
+            System.out.println("Please input right profession");
+        }
     }
-
     private static void addDoctor() {
+        personStorage.printProfession();
         System.out.println("Please input id,name,surname,email,phone,profession");
         String doctorDataStr = scanner.nextLine();
         String[] doctorData = doctorDataStr.split(",");
@@ -148,7 +162,11 @@ public class MedicalCentreDemo implements Commands {
             doctor.setSurName(doctorData[2]);
             doctor.setPhone(doctorData[3]);
             doctor.setEmail(doctorData[4]);
-            doctor.setProfession(doctorData[5]);
+            try {
+                doctor.setProfession(Profession.valueOf(doctorData[5]));
+            } catch (IllegalArgumentException e) {
+                System.out.println("Please input right profession");
+            }
             personStorage.add(doctor);
             System.out.println("Doctor added");
         } else {

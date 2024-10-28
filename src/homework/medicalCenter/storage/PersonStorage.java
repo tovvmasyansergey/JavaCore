@@ -3,6 +3,7 @@ package homework.medicalCenter.storage;
 import homework.medicalCenter.model.Doctor;
 import homework.medicalCenter.model.Patient;
 import homework.medicalCenter.model.Person;
+import homework.medicalCenter.model.Profession;
 import homework.medicalCenter.util.DateUtil;
 
 import java.util.Date;
@@ -42,12 +43,12 @@ public class PersonStorage {
         }
     }
 
-    public void searchDoctorByProfession(String profession) {
+    public void searchDoctorByProfession(Profession profession) {
         for (int i = 0; i < size; i++) {
             Person person = persons[i];
             if (person instanceof Doctor) {
                 Doctor doctor = (Doctor) person;
-                if (doctor.getProfession().equals(profession)) {
+                if (doctor.getProfession() == profession) {
                     System.out.println(persons[i]);
                 }
             }
@@ -119,21 +120,12 @@ public class PersonStorage {
         }
         return true;
     }
-}
 
-//    public void changeDoctorId(String data, String id) {
-//        for (int i = 0; i < size; i++) {
-//            if (persons[i].getId().equals(id)) {
-//                Doctor doctor = (Doctor) persons[i];
-//                String[] split = data.split(",");
-//                doctor.setName(split[0]);
-//                doctor.setSurName(split[1]);
-//                doctor.setPhone(split[2]);
-//                doctor.setEmail(split[3]);
-//                doctor.setProfession(split[4]);
-//            }
-//        }
-//
-//
-//    }
+    public void printProfession() {
+        Profession[] values = Profession.values();
+        for (Profession value : values) {
+            System.out.println(value);
+        }
+    }
+}
 
