@@ -1,4 +1,4 @@
-package chapters.chapter12.fruit;
+package chapters.chapter12.enums.fruit;
 
 public enum Apple {
     JONATHAN,

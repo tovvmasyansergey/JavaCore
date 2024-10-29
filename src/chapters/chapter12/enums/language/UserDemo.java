@@ -1,6 +1,5 @@
-package chapters.chapter12.language;
+package chapters.chapter12.enums.language;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class UserDemo {

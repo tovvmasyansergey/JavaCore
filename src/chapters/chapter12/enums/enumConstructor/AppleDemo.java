@@ -1,4 +1,4 @@
-package chapters.chapter12.enumConstructor;
+package chapters.chapter12.enums.enumConstructor;
 
 public class AppleDemo {
     public static void main(String[] args) {

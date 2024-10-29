@@ -1,4 +1,4 @@
-package chapters.chapter12.answer;
+package chapters.chapter12.enums.answer;
 
 public class AskMe {
     static void answer(Answers result) {

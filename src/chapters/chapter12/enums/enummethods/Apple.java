@@ -1,4 +1,4 @@
-package chapters.chapter12.enummethods;
+package chapters.chapter12.enums.enummethods;
 
 public enum Apple {
     JONATHAN,

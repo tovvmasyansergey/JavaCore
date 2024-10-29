@@ -1,4 +1,4 @@
-package chapters.chapter12.language;
+package chapters.chapter12.enums.language;
 
 public enum Language {
     HY("Armenia"),
