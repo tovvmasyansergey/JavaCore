@@ -1,4 +1,4 @@
-package chapters.chapter14.collection;
+package chapters.collection;
 
 import java.util.LinkedList;
 

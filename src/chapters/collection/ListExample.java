@@ -1,6 +1,7 @@
-package chapters.chapter14.collection;
+package chapters.collection;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ListExample {
     public static void main(String[] args) {
@@ -9,13 +10,13 @@ public class ListExample {
         names.add("Petros");
         names.add("Petros");
         names.add("Petros");
-        for (int i = 0; i < names.size(); i++) {
-            System.out.println(names.get(i));
-        }
         for (String name : names) {
             System.out.println(name);
         }
-
-
+        Iterator<String> iterator = names.iterator();
+        while (iterator.hasNext()){
+            String next = iterator.next();
+            System.out.println(next);
+        }
     }
 }
